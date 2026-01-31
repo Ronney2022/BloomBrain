@@ -1,17 +1,13 @@
-
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import Page from './app/page';
-import './app/globals.css';
+import { createRoot } from 'react-dom/client';
+import Page from './app/page.tsx';
 
-const rootElement = document.getElementById('root');
-if (!rootElement) {
-  throw new Error("Could not find root element to mount to");
+const container = document.getElementById('root');
+if (container) {
+  const root = createRoot(container);
+  root.render(
+    <React.StrictMode>
+      <Page />
+    </React.StrictMode>
+  );
 }
-
-const root = ReactDOM.createRoot(rootElement);
-root.render(
-  <React.StrictMode>
-    <Page />
-  </React.StrictMode>
-);
